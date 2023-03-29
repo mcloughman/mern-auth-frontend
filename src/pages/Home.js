@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import HikeDetails from "../components/HikeDetails";
+import HikeForm from "../components/HikeForm";
 
 const Home = () => {
   const [hikes, setHikes] = useState([]);
@@ -16,6 +17,7 @@ const Home = () => {
   }, []);
   return (
     <div className="home">
+      <HikeForm />
       <div className="hikes">
         {hikes &&
           hikes.map((hike) => {
