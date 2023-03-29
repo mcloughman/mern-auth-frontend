@@ -4,8 +4,12 @@ const HikeForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState("");
-  const [image, setImage] = useState("");
+  const [images, setImages] = useState("");
   const [error, setError] = useState(null);
+
+  const handleFileChange = (e) => {
+    setImages([...e.target.files]);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,7 +18,10 @@ const HikeForm = () => {
     formData.append("title", title);
     formData.append("description", description);
     formData.append("rating", rating);
-    formData.append("image", image);
+    for (let i = 0; i < images.length; i++) {
+      formData.append(`image`, images[i]);
+    }
+
     const response = await fetch("/api/hikes", {
       method: "POST",
       body: formData,
@@ -29,7 +36,7 @@ const HikeForm = () => {
       setTitle("");
       setDescription("");
       setRating("");
-      setImage("");
+      setImages("");
       setError(null);
       console.log("workout added!", json);
     }
@@ -62,11 +69,7 @@ const HikeForm = () => {
         onChange={(e) => setDescription(e.target.value)}
         value={description}
       />
-      <input
-        type="file"
-        name="image"
-        onChange={(e) => setImage(e.target.files[0])}
-      />
+      <input type="file" name="image" onChange={handleFileChange} multiple />
       <button>Add Hike</button>
       <br />
       {error && <p className="error">{error}</p>}
