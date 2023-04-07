@@ -8,7 +8,7 @@ export const hikesReducer = (state, action) => {
       return {
         hikes: action.payload,
       };
-    case "CREATE__HIKE":
+    case "CREATE_HIKE":
       return {
         hikes: [action.payload, ...state.hikes],
       };
@@ -27,7 +27,7 @@ export const HikesContextProvider = ({ children }) => {
   // dispatch({ type: "SET_HIKES", payload: [{}, {}] });
 
   return (
-    <HikesContext.Provider value={{ state, dispatch }}>
+    <HikesContext.Provider value={{ ...state, dispatch }}>
       {children}
     </HikesContext.Provider>
   );

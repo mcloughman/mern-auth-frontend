@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useHikesContext } from "../hooks/useHikesContext";
 
 const HikeForm = () => {
+  const { dispatch } = useHikesContext();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState("");
@@ -40,6 +42,10 @@ const HikeForm = () => {
       setImages("");
       setError(null);
       console.log("hike added!", json);
+      dispatch({
+        type: "CREATE_HIKE",
+        payload: json,
+      });
     }
   };
 

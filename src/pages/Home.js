@@ -1,16 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import HikeDetails from "../components/HikeDetails";
 import HikeForm from "../components/HikeForm";
+import { useHikesContext } from "../hooks/useHikesContext";
 
 const Home = () => {
-  const [hikes, setHikes] = useState([]);
+  const { hikes, dispatch } = useHikesContext();
   useEffect(() => {
     // we can't make useeEffect async, so we create an async function inside it and then call it
     const fetchHikes = async () => {
       const response = await fetch("/api/hikes");
       const json = await response.json();
       if (response.ok) {
-        setHikes(json);
+        dispatch({
+          type: "SET_HIKES",
+          payload: json,
+        });
       }
     };
     fetchHikes();
