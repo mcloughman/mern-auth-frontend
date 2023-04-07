@@ -39,3 +39,7 @@ body {
   background: white;
   display: inline;
 }
+
+.delete-span:hover {
+  cursor: pointer;
+}
