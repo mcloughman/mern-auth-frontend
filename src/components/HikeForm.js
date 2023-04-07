@@ -26,6 +26,7 @@ const HikeForm = () => {
       method: "POST",
       body: formData,
     });
+    console.log(response);
     const json = await response.json();
     if (!response.ok) {
       console.log(response);
@@ -38,7 +39,7 @@ const HikeForm = () => {
       setRating("");
       setImages("");
       setError(null);
-      console.log("workout added!", json);
+      console.log("hike added!", json);
     }
   };
 
