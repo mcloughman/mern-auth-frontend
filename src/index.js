@@ -3,12 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { HikesContextProvider } from "./context/HikeAppContext";
+import { AuthContextProvider } from "./context/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <HikesContextProvider>
-      <App />
-    </HikesContextProvider>
+    <AuthContextProvider>
+      <HikesContextProvider>
+        <App />
+      </HikesContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );

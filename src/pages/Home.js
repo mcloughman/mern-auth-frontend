@@ -18,10 +18,10 @@ const Home = () => {
       }
     };
     fetchHikes();
-  }, []);
+  }, [dispatch]);
   return (
     <div className="home">
-      <HikeForm />
+      {/* <HikeForm /> */}
       <div className="hikes">
         {hikes &&
           hikes.map((hike) => {

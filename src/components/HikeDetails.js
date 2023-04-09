@@ -1,5 +1,6 @@
 import { useHikesContext } from "../hooks/useHikesContext";
 import { BiTrash } from "react-icons/bi";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const HikeDetails = ({ hike }) => {
   const { dispatch } = useHikesContext();
@@ -28,9 +29,11 @@ const HikeDetails = ({ hike }) => {
           className="home-image"
         />
       )}
-      <p>{hike.description}</p>
+      <p>{hike.description.substring(0, 20)}...</p>
       <p>Rating: {hike.rating}</p>
-      <p>{hike.createdAt}</p>
+      <p className="created-at">
+        {formatDistanceToNow(new Date(hike.createdAt))} ago
+      </p>
       <span className="delete-span" onClick={deleteHike}>
         <BiTrash />
       </span>

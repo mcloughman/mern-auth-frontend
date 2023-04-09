@@ -17,7 +17,8 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   background-color: var(--tertiary);
   opacity: 0.9;
   margin: 2%;
@@ -25,21 +26,86 @@ body {
 
 .hike-details {
   width: 50%;
-  margin: 2%;
+  margin: 20px auto;
   text-align: center;
   color: var(--primary);
 }
+.hike-details > p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.hike-details .created-at {
+  font-size: 10px;
+  opacity: 0.7;
+}
 .home-image {
-  max-width: 50%;
+  max-width: 330px;
 }
 
 .error {
-  border: 1px solid red;
+  border: 3px solid var(--secondary);
   color: red;
   background: white;
   display: inline;
 }
+.error-message {
+  color: var(--secondary);
+  padding: 10px;
+  font-size: 24px;
+}
 
 .delete-span:hover {
   cursor: pointer;
+}
+
+.create {
+  margin: 20px auto;
+  text-align: center;
+  width: 800px;
+  border: 3px solid coral;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--tertiary);
+}
+
+.create > input {
+  display: block;
+  margin: 0 auto 20px;
+  width: 300px;
+}
+
+input::file-selector-button {
+  background-color: var(--primary);
+  position: relative;
+  color: white;
+  margin: 0px 5% 15px;
+  padding: 5px 10px;
+}
+
+.create #rating {
+  width: 50px;
+}
+
+.create label {
+  margin-bottom: 5px;
+}
+
+.create #description {
+  width: 80%;
+  align-self: center;
+}
+
+.create .add-hike {
+  margin-bottom: 20px;
+  width: 80%;
+  align-self: center;
+  padding: 10px 0;
+  border-radius: 20px;
+  background: var(--primary);
+  color: white;
+}
+
+.create .image-label {
+  margin-top: 25px;
 }
