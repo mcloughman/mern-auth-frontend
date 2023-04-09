@@ -94,6 +94,7 @@ input::file-selector-button {
 .create #description {
   width: 80%;
   align-self: center;
+  height: 100px;
 }
 
 .create .add-hike {
@@ -104,8 +105,34 @@ input::file-selector-button {
   border-radius: 20px;
   background: var(--primary);
   color: white;
+  font-size: 1.2em;
 }
 
 .create .image-label {
   margin-top: 25px;
+}
+
+.login,
+.signup {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  margin: 50px auto;
+  text-align: center;
+  font-size: 24px;
+  background-color: var(--tertiary);
+}
+
+.form-input {
+  height: 30px;
+  width: 80%;
+  margin: 0 auto 30px;
+}
+.form-btn {
+  background-color: var(--primary);
+  color: white;
+  width: 80%;
+  align-self: center;
+  margin-bottom: 15px;
+  padding: 10px;
 }
