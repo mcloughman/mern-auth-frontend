@@ -22,6 +22,7 @@ body {
   background-color: var(--tertiary);
   opacity: 0.9;
   margin: 2%;
+  padding: 20px;
 }
 
 .hike-details {
@@ -137,15 +138,18 @@ input::file-selector-button {
   padding: 10px;
 }
 
-.logout {
-  background: none;
-  border: none;
-  font-size: 24px;
+.user-nav-div > * {
+  margin: 0 10px;
+  font-size: 20px;
   color: #551a8b;
-  font-family: Poppins;
-  text-decoration: underline;
   font-weight: bold;
+  text-decoration: none;
 }
-.logout:hover {
-  cursor: pointer;
+
+a.user-nav-div {
+  margin: 0 10px;
+  font-size: 20px;
+  color: #551a8b;
+  font-weight: bold;
+  text-decoration: none;
 }
