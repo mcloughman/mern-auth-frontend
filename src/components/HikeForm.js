@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHikesContext } from "../hooks/useHikesContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const HikeForm = () => {
   const { dispatch } = useHikesContext();
@@ -9,6 +10,7 @@ const HikeForm = () => {
   const [images, setImages] = useState("");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
+  const { user } = useAuthContext();
 
   const handleFileChange = (e) => {
     setImages([...e.target.files]);
@@ -16,7 +18,10 @@ const HikeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target);
+    if (!user) {
+      setError("You must be logged in!");
+      return;
+    }
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
@@ -30,8 +35,13 @@ const HikeForm = () => {
     const response = await fetch("/api/hikes", {
       method: "POST",
       body: formData,
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
     });
     const json = await response.json();
+    console.log(json);
+
     if (!response.ok) {
       console.log(json.error);
       setError(json.error);
@@ -47,7 +57,7 @@ const HikeForm = () => {
       setError(null);
       setEmptyFields([]);
       console.log("hike added!", json);
-      dispatch({
+      await dispatch({
         type: "CREATE_HIKE",
         payload: json,
       });

@@ -25,7 +25,7 @@ const Login = () => {
         placeholder="email"
         onChange={(e) => setEmail(e.target.value)}
       />
-      <label htmlFor="password" classname="form-label">
+      <label htmlFor="password" className="form-label">
         Password
       </label>
       <input

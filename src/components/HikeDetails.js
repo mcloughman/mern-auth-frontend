@@ -1,14 +1,24 @@
+import { useState } from "react";
 import { useHikesContext } from "../hooks/useHikesContext";
 import { BiTrash } from "react-icons/bi";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const HikeDetails = ({ hike }) => {
+  const [isError, setIsError] = useState(null);
   const { dispatch } = useHikesContext();
+  const { user } = useAuthContext();
 
   const deleteHike = async (e) => {
+    if (!user) {
+      setIsError("You are not authorized!");
+      return;
+    }
     const response = await fetch("/api/hikes/" + hike._id, {
       method: "DELETE",
+      headers: { Authorization: `Bearer ${user.token}` },
     });
+    console.log(response);
     const json = await response.json();
     console.log(json);
     if (response.ok) {
@@ -37,6 +47,7 @@ const HikeDetails = ({ hike }) => {
       <span className="delete-span" onClick={deleteHike}>
         <BiTrash />
       </span>
+      {isError && <div className="error">{isError}</div>}
     </div>
   );
 };
