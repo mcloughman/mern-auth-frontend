@@ -2,7 +2,7 @@ import React from "react";
 // Navigate hook is used to redirect user
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
-import { useHikesContext } from "./hooks/useHikesContext";
+
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import HikeForm from "./components/HikeForm";
