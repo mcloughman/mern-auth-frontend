@@ -17,11 +17,11 @@ const Navbar = () => {
 
       {user && (
         <div className="user-nav-div">
+          <Link to="/form">Add a new hike</Link>
           <span>{user.email}</span>
           <button onClick={handleClick} className="logout">
             Logout
           </button>
-          <Link to="/form">Add a new hike</Link>
         </div>
       )}
       {!user && (

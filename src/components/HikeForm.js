@@ -76,16 +76,18 @@ const HikeForm = () => {
         className={emptyFields.includes("title") ? "error" : ""}
       />
       <label htmlFor="rating">Hike Rating</label>
+
       <input
         type="number"
         min="1"
         max="5"
         step="0.5"
         id="rating"
-        onChange={(e) => setRating(Number(e.target.value))}
+        onChange={(e) => setRating(e.target.value)}
         value={Number(rating)}
         className={emptyFields.includes("rating") ? "error" : ""}
       />
+
       <label htmlFor="description">Description</label>
       <textarea
         id="description"

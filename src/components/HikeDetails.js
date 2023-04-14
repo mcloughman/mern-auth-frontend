@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useHikesContext } from "../hooks/useHikesContext";
 import { BiTrash } from "react-icons/bi";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
@@ -6,12 +7,13 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 const HikeDetails = ({ hike }) => {
   const [isError, setIsError] = useState(null);
+
   const { dispatch } = useHikesContext();
   const { user } = useAuthContext();
-
   const deleteHike = async (e) => {
     if (!user) {
       setIsError("You are not authorized!");
+      console.log(isError);
       return;
     }
     const response = await fetch("/api/hikes/" + hike._id, {
@@ -40,16 +42,19 @@ const HikeDetails = ({ hike }) => {
         />
       )}
       <p>{hike.description.substring(0, 20)}...</p>
+      <Link to={`/${hike._id}`}>View More Details</Link>
       <p>Rating: {hike.rating}</p>
       <p className="created-at">
         {formatDistanceToNow(new Date(hike.createdAt))} ago
       </p>
-      <span className="delete-span" onClick={deleteHike}>
-        <BiTrash />
-      </span>
+      {user && user.id === hike.user_id && (
+        <span className="delete-span" onClick={deleteHike}>
+          <BiTrash />
+        </span>
+      )}
       {isError && <div className="error">{isError}</div>}
     </div>
-  );
+  ); //
 };
 
 export default HikeDetails;
