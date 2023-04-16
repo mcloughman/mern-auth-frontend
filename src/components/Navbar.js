@@ -11,24 +11,34 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <Link to="/" className="user-nav-div">
-        Hikes
+      <Link to="/" className="navlink" id="homelink">
+        Home
       </Link>
 
       {user && (
         <div className="user-nav-div">
-          <Link to="/form">Add a new hike</Link>
-          <span>{user.email}</span>
-          <button onClick={handleClick} className="logout">
-            Logout
-          </button>
+          <Link to="/form" className="navlink">
+            Add a New Hike
+          </Link>
+          <div className="log-div">
+            <span className="logged-in">Logged in as {user.email}</span>
+            <button onClick={handleClick} className="logout">
+              Logout
+            </button>
+          </div>
         </div>
       )}
       {!user && (
         <div className="user-nav-div">
-          <Link to="/signup">Signup</Link>
+          <div className="signup-login">
+            <Link to="/signup" className="signup-link navlink">
+              Signup
+            </Link>
 
-          <Link to="/login">Login</Link>
+            <Link to="/login" className="login-link navlink">
+              Login
+            </Link>
+          </div>
         </div>
       )}
     </nav>

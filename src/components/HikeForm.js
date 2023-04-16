@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useHikesContext } from "../hooks/useHikesContext";
 import { useAuthContext } from "../hooks/useAuthContext";
 
@@ -11,6 +12,7 @@ const HikeForm = () => {
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
   const { user } = useAuthContext();
+  const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     setImages([...e.target.files]);
@@ -61,6 +63,7 @@ const HikeForm = () => {
         type: "CREATE_HIKE",
         payload: json,
       });
+      navigate("/");
     }
   };
 
