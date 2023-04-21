@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import HikeDetails from "../components/HikeDetails";
+import AltNavbar from "../components/AltNavbar";
 
 import { useHikesContext } from "../hooks/useHikesContext";
 
@@ -21,7 +22,8 @@ const Home = () => {
   }, [dispatch]);
   return (
     <div className="home">
-      {/* <HikeForm /> */}
+      <AltNavbar />
+
       <div className="hikes">
         {hikes &&
           hikes.map((hike) => {

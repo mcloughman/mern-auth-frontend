@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
+
 import HikeForm from "./components/HikeForm";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -16,7 +16,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />
