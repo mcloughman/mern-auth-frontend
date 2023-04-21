@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import HikeDetails from "../components/HikeDetails";
-import HikeForm from "../components/HikeForm";
+
 import { useHikesContext } from "../hooks/useHikesContext";
 
 const Home = () => {
