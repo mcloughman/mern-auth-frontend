@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import HikeDetails from "../components/HikeDetails";
 import AltNavbar from "../components/AltNavbar";
 
