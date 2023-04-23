@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     // we can't make useeEffect async, so we create an async function inside it and then call it
     const fetchHikes = async () => {
-      const response = await fetch("/api/hikes");
+      const response = await fetch("https://mern-hikes.herokuapp.com/");
       const json = await response.json();
       if (response.ok) {
         dispatch({
