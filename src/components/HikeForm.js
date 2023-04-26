@@ -113,7 +113,9 @@ const HikeForm = () => {
           onChange={handleFileChange}
           multiple
         />
-        <button className="add-hike">Add Hike</button>
+        <button type="submit" className="add-hike">
+          Add Hike
+        </button>
       </form>
     </div>
   );
