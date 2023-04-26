@@ -55,7 +55,7 @@ const Signup = () => {
           id="confirmPassword"
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button type="submit" className="form-btn" disabled={isLoading}>
+        <button type="submit" className="form-btn">
           Signup
         </button>
         {isError && <div className="error">{isError}</div>}
