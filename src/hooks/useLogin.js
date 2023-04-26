@@ -9,7 +9,7 @@ export const useLogin = () => {
   const navigate = useNavigate();
 
   const login = async (email, password) => {
-    setIsLoading(true);
+    setIsLoading(null);
     setError(null);
 
     const response = await fetch(

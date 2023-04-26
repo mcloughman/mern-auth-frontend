@@ -9,7 +9,7 @@ const useSignup = () => {
   const navigate = useNavigate();
 
   const signup = async (email, password, confirmPassword) => {
-    setIsLoading(true);
+    setIsLoading(false);
     setError(null);
 
     const response = await fetch(
