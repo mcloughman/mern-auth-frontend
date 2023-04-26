@@ -8,7 +8,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isError, setIsError] = useState(null);
-  const { signup, error, isLoading } = useSignup();
+  const { signup, error } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -3,7 +3,7 @@ import { useLogin } from "../hooks/useLogin";
 import LoginNavbar from "../components/LoginNavbar";
 
 const Login = () => {
-  const { login, error, isLoading } = useLogin();
+  const { login, error } = useLogin();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
