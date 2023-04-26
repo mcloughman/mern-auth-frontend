@@ -8,7 +8,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isError, setIsError] = useState(null);
-  const { signup, error } = useSignup();
+  const { signup, error, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,7 +55,7 @@ const Signup = () => {
           id="confirmPassword"
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button type="submit" className="form-btn">
+        <button className="form-btn" disabled={isLoading}>
           Signup
         </button>
         {isError && <div className="error">{isError}</div>}

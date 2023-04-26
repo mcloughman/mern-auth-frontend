@@ -35,7 +35,7 @@ const HikeForm = () => {
       }
     }
 
-    const response = await fetch("/api/hikes", {
+    const response = await fetch("https://mern-hikes.herokuapp.com/api/hikes", {
       method: "POST",
       body: formData,
       headers: {
