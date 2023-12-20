@@ -1,25 +1,25 @@
-import { useState } from "react";
-import SignupNavbar from "../components/SignupNavbar";
+import { useState } from "react"
+import SignupNavbar from "../components/SignupNavbar"
 
-import useSignup from "../hooks/useSignup";
+import useSignup from "../hooks/useSignup"
 
 const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [isError, setIsError] = useState(null);
-  const { signup, error, isLoading } = useSignup();
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [isError, setIsError] = useState(null)
+  const { signup, error, isLoading } = useSignup()
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsError(null);
-    console.log(password, confirmPassword);
+    e.preventDefault()
+    setIsError(null)
+    console.log(password, confirmPassword)
     if (password !== confirmPassword) {
-      setIsError("Password Confirmation Failed!");
-      return;
+      setIsError("Password Confirmation Failed!")
+      return
     }
-    await signup(email, password);
-  };
+    await signup(email, password)
+  }
 
   return (
     <div>
@@ -46,8 +46,10 @@ const Signup = () => {
           id="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label htmlFor="confirmPassword" className="form-label"></label>
-        Confirm Password
+        <label htmlFor="confirmPassword" className="form-label">
+          Confirm Password
+        </label>
+
         <input
           className="form-input"
           type="password"
@@ -62,7 +64,7 @@ const Signup = () => {
         {error && <div className="error">{error}</div>}
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup
