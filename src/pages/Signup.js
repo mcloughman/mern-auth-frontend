@@ -13,12 +13,17 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsError(null)
-    console.log(password, confirmPassword)
-    if (password !== confirmPassword) {
-      setIsError("Password Confirmation Failed!")
-      return
+
+    try {
+      console.log(password, confirmPassword)
+      if (password !== confirmPassword) {
+        throw new Error("Password Confirmation Failed!")
+      }
+
+      await signup(email, password)
+    } catch (error) {
+      setIsError(error.message)
     }
-    await signup(email, password)
   }
 
   return (
